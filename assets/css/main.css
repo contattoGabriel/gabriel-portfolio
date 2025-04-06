@@ -12,7 +12,9 @@
 --------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway", sans-serif;
   --nav-font: "Poppins", sans-serif;
 }
@@ -170,18 +172,19 @@ h6 {
 @media (max-width: 1199px) {
   .header {
     background-color: var(--background-color);
-    border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    border-right: 1px solid
+      color-mix(in srgb, var(--default-color), transparent 90%);
     width: 300px;
     left: -100%;
   }
 }
 
 @media (min-width: 1200px) and (max-width: 1600px) {
-  .header~main {
+  .header ~ main {
     margin-left: 160px;
   }
 
-  .header~main .hero {
+  .header ~ main .hero {
     margin-left: -160px;
     width: 100vw;
   }
@@ -257,7 +260,6 @@ h6 {
 }
 
 @media (min-width: 992px) {
-
   .navmenu a,
   .navmenu a:focus {
     max-width: 56px;
@@ -272,19 +274,19 @@ h6 {
 .navmenu a:hover,
 .navmenu .active,
 .navmenu .active:focus,
-.navmenu li:hover>a {
+.navmenu li:hover > a {
   color: var(--contrast-color);
   background: var(--nav-hover-color);
 }
 
 .navmenu a:hover,
-.navmenu li:hover>a {
+.navmenu li:hover > a {
   max-width: 100%;
   color: var(--contrast-color);
 }
 
 .navmenu a:hover span,
-.navmenu li:hover>a span {
+.navmenu li:hover > a span {
   display: block;
 }
 
@@ -342,7 +344,8 @@ h6 {
 
 .footer .copyright {
   padding-top: 25px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 .footer .credits {
@@ -455,11 +458,11 @@ h6 {
   font-weight: 400;
 }
 
-.page-title .breadcrumbs ol li+li {
+.page-title .breadcrumbs ol li + li {
   padding-left: 10px;
 }
 
-.page-title .breadcrumbs ol li+li::before {
+.page-title .breadcrumbs ol li + li::before {
   content: "/";
   display: inline-block;
   padding-right: 10px;
@@ -673,8 +676,103 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Skills Section
+# Skills Section - Ajustado para seu portfólio
 --------------------------------------------------------------*/
+.skills {
+  padding: 60px 0;
+}
+
+.skills .section-title p {
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  color: var(--default-color);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  background-color: var(--surface-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 3px solid var(--accent-color);
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.skill-name {
+  font-weight: 600;
+  color: var(--heading-color);
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.skill-percentage {
+  font-weight: 700;
+  color: var(--accent-color);
+  font-size: 20px;
+}
+
+.skill-progress-container {
+  width: 100%;
+  height: 10px;
+  background-color: color-mix(in srgb, var(--default-color), transparent 90%);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  transition: width 1s ease-in-out;
+}
+
+/* Estilo para a animação das barras de progresso */
+.skills-animation .progress-bar {
+  animation: progress-animation 1.5s ease-in-out forwards;
+}
+
+@keyframes progress-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: attr(aria-valuenow);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+    padding: 15px;
+  }
+}
+
+/* Mantendo os estilos existentes para compatibilidade */
 .skills .progress {
   height: 60px;
   display: block;
@@ -708,7 +806,6 @@ section,
   transition: 0.9s;
   background-color: var(--accent-color);
 }
-
 /*--------------------------------------------------------------
 # Curriculo Section
 --------------------------------------------------------------*/
@@ -1083,7 +1180,7 @@ section,
 # Contato Section
 --------------------------------------------------------------*/
 
-.Contato .info-item+.info-item {
+.Contato .info-item + .info-item {
   margin-top: 40px;
 }
 
@@ -1123,31 +1220,35 @@ section,
   height: 100%;
 }
 
-.Contato .php-email-form input[type=text],
-.Contato .php-email-form input[type=email],
+.Contato .php-email-form input[type="text"],
+.Contato .php-email-form input[type="email"],
 .Contato .php-email-form textarea {
   font-size: 14px;
   padding: 10px 15px;
   box-shadow: none;
   border-radius: 0;
   color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  background-color: color-mix(
+    in srgb,
+    var(--background-color),
+    transparent 50%
+  );
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
 }
 
-.Contato .php-email-form input[type=text]:focus,
-.Contato .php-email-form input[type=email]:focus,
+.Contato .php-email-form input[type="text"]:focus,
+.Contato .php-email-form input[type="email"]:focus,
 .Contato .php-email-form textarea:focus {
   border-color: var(--accent-color);
 }
 
-.Contato .php-email-form input[type=text]::placeholder,
-.Contato .php-email-form input[type=email]::placeholder,
+.Contato .php-email-form input[type="text"]::placeholder,
+.Contato .php-email-form input[type="email"]::placeholder,
 .Contato .php-email-form textarea::placeholder {
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
-.Contato .php-email-form button[type=submit] {
+.Contato .php-email-form button[type="submit"] {
   color: var(--contrast-color);
   background: var(--accent-color);
   border: 0;
@@ -1156,7 +1257,7 @@ section,
   border-radius: 50px;
 }
 
-.Contato .php-email-form button[type=submit]:hover {
+.Contato .php-email-form button[type="submit"]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 25%);
 }
 
@@ -1197,7 +1298,6 @@ section,
 }
 
 @media (max-width: 575px) {
-
   .portfolio-details .swiper-button-prev,
   .portfolio-details .swiper-button-next {
     display: none;
@@ -1343,14 +1443,15 @@ section,
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
 }
 
-.service-details .service-box+.service-box {
+.service-details .service-box + .service-box {
   margin-top: 30px;
 }
 
 .service-details .service-box h4 {
   font-size: 20px;
   font-weight: 700;
-  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 92%);
+  border-bottom: 2px solid
+    color-mix(in srgb, var(--default-color), transparent 92%);
   padding-bottom: 15px;
   margin-bottom: 15px;
 }
@@ -1395,7 +1496,8 @@ section,
   align-items: center;
   padding: 10px 0;
   transition: 0.3s;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid
+    color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
 .service-details .download-catalog a:first-child {
